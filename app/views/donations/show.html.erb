@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @donation.quantity %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @donation.user %>
+</p>
+
+<p>
+  <strong>Project item:</strong>
+  <%= @donation.project_item %>
+</p>
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donations_path %>

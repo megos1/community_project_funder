@@ -21,54 +21,54 @@ class ProjectItemsController < ApplicationController
   def edit
   end
 
-  # POST /product_items
-  # POST /product_items.json
+  # POST /project_items
+  # POST /project_items.json
   def create
-    @product_item = ProductItem.new(product_item_params)
+    @project_item = ProjectItem.new(project_item_params)
 
     respond_to do |format|
-      if @product_item.save
-        format.html { redirect_to @product_item, notice: 'Product item was successfully created.' }
-        format.json { render :show, status: :created, location: @product_item }
+      if @project_item.save
+        format.html { redirect_to @project_item, notice: 'Project item was successfully created.' }
+        format.json { render :show, status: :created, location: @project_item }
       else
         format.html { render :new }
-        format.json { render json: @product_item.errors, status: :unprocessable_entity }
+        format.json { render json: @project_item.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /product_items/1
-  # PATCH/PUT /product_items/1.json
+  # PATCH/PUT /project_items/1
+  # PATCH/PUT /project_items/1.json
   def update
     respond_to do |format|
-      if @product_item.update(product_item_params)
-        format.html { redirect_to @product_item, notice: 'Product item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product_item }
+      if @project_item.update(project_item_params)
+        format.html { redirect_to @project_item, notice: 'Project item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @project_item }
       else
         format.html { render :edit }
-        format.json { render json: @product_item.errors, status: :unprocessable_entity }
+        format.json { render json: @project_item.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /product_items/1
-  # DELETE /product_items/1.json
+  # DELETE /project_items/1
+  # DELETE /project_items/1.json
   def destroy
-    @product_item.destroy
+    @project_item.destroy
     respond_to do |format|
-      format.html { redirect_to product_items_url, notice: 'Product item was successfully destroyed.' }
+      format.html { redirect_to project_items_url, notice: 'Project item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_product_item
-      @product_item = ProductItem.find(params[:id])
+    def set_project_item
+      @project_item = ProjectItem.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def product_item_params
-      params.require(:product_item).permit(:name, :description, :quantity, :projects)
+    def project_item_params
+      params.require(:project_item).permit(:name, :description, :quantity, :project_id)
     end
 end

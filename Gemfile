@@ -36,12 +36,19 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# gem 'haml'
+gem 'bootstrap-sass'
+gem 'simple_form'
+gem 'high_voltage'
+
 gem 'devise'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'sqlite3'
+  gem 'rails_layout'
 end
 
 group :production do
