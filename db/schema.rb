@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628021145) do
+ActiveRecord::Schema.define(version: 20140701003747) do
 
   create_table "donations", force: true do |t|
     t.integer  "quantity"
@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(version: 20140628021145) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "projects", ["name"], name: "index_projects_on_name"

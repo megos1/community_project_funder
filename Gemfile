@@ -37,12 +37,12 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# gem 'haml'
+gem 'haml'
 gem 'bootstrap-sass'
-gem 'simple_form'
-gem 'high_voltage'
+
 
 gem 'devise'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 group :development do
   gem 'better_errors'
