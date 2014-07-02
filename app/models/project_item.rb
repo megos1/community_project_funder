@@ -12,11 +12,15 @@ def donated
 end
 
 def remaining
-   quantity - total_donated
+   quantity - donated
+end
+
+def remaining_cost
+  (quantity * cost) - (donated * cost)
 end
 
 def total_cost
-	remaining * cost
+	quantity * cost
 end
 
 end
