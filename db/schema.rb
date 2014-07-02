@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701003747) do
+ActiveRecord::Schema.define(version: 20140702014705) do
 
   create_table "donations", force: true do |t|
     t.integer  "quantity"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140701003747) do
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "cost"
   end
 
   add_index "project_items", ["project_id"], name: "index_project_items_on_project_id"
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140701003747) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "location"
   end
 
   add_index "projects", ["name"], name: "index_projects_on_name"

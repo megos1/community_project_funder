@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, only:[:new, :edit, :update, :create, :destroy]
+  before_action :authenticate_user!, only:[:new, :edit, :update, :create, :destroy]
+  
   # GET /projects
   # GET /projects.json
   def index
@@ -14,8 +15,7 @@ before_action :authenticate_user!, only:[:new, :edit, :update, :create, :destroy
 
   # GET /projects/new
   def new
-    @project = Project.new
-
+        @project = Project.new
   end
 
   # GET /projects/1/edit
@@ -71,6 +71,6 @@ before_action :authenticate_user!, only:[:new, :edit, :update, :create, :destroy
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :duration, :user_id, :image)
+      params.require(:project).permit(:name, :location, :description, :duration, :user_id, :image)
     end
 end

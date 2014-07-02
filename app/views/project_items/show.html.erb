@@ -20,5 +20,10 @@
   <%= @project_item.project %>
 </p>
 
+<p>
+  <strong>Cost per item:</strong>
+  <%= @project_item.cost %>
+</p>
+
 <%= link_to 'Edit', edit_project_item_path(@project_item) %> |
 <%= link_to 'Back', project_items_path %>

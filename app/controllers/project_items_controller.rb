@@ -69,6 +69,6 @@ class ProjectItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_item_params
-      params.require(:project_item).permit(:name, :description, :quantity, :project_id)
+      params.require(:project_item).permit(:name, :cost, :description, :quantity, :project_id)
     end
 end

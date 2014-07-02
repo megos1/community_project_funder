@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
-
-  get 'pages/about'
   
   root 'pages#home'
 
+  get 'pages/about'
+  
   get 'pages/home'
  
   resources :project_items
 
   resources :donations
+
+  resources :projects    
  
   devise_for :users
- 
-  resources :projects
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
