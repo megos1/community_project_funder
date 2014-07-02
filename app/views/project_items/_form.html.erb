@@ -1,4 +1,4 @@
-<%= form_for(@project_item) do |f| %>
+<%= form_for(@project_item, url: project_project_item_path, method: :patch)  do |f| %>
   <% if @project_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project_item.errors.count, "error") %> prohibited this project_item from being saved:</h2>
