@@ -1,6 +1,7 @@
 class ProjectItemsController < ApplicationController
   before_action :set_project_item, only: [:show, :edit, :update, :destroy]
 
+
   # GET /project_items
   # GET /project_items.json
   def index
@@ -25,10 +26,10 @@ class ProjectItemsController < ApplicationController
   # POST /project_items.json
   def create
     @project_item = ProjectItem.new(project_item_params)
-
+    @project_item.project_id = params[:project_id]
     respond_to do |format|
       if @project_item.save
-        format.html { redirect_to @project_item, notice: 'Project item was successfully created.' }
+        format.html { redirect_to project_path(params[:project_id]), notice: 'Project item was successfully created.' }
         format.json { render :show, status: :created, location: @project_item }
       else
         format.html { render :new }

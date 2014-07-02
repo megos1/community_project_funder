@@ -38,22 +38,34 @@
    <%= @project.location %>
 
 
-    <%@project.project_items.each do |project_item| %>
-     
-        <%= project_item.name %>
-        <%= project_item.description %>
-        <%= project_item.quantity %>
-        <%= project_item.project %>
 
-       <%= link_to 'Show', project_item %>
-      <%= link_to 'Edit', edit_project_item_path(project_item) %>
-        <%= link_to 'Destroy', project_item, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
   
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
 
 
-<%= link_to 'New Project item', new_project_item_path(@project) %>
+<%= link_to 'New Project item', new_project_item_path(@project)  %>
 
+
+<%@project.project_items.each do |project_item| %>
+
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= project_item.name %>
+      <small>    <%= project_item.quantity %></small>
+    </h4>
+
+    <%= project_item.description %>
+
+  </div>
+</div>
+
+
+
+  <%= link_to 'Show', project_items_path(:project_item) %>
+  <%= link_to 'Destroy', project_items_path(:project_item), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<%= raise StandardError %>

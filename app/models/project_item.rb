@@ -3,7 +3,7 @@ class ProjectItem < ActiveRecord::Base
 belongs_to :project
 has_many :donations
 
-def remaining
+def donated
 	total = 0
 	donations.all.each do |donation| 
   total += donation.quantity
@@ -11,8 +11,12 @@ def remaining
 	total
 end
 
+def remaining
+   quantity - total_donated
+end
+
 def total_cost
-	self.amount_remaining * cost
+	remaining * cost
 end
 
 end
