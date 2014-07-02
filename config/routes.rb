@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :donations
 
   resources :projects do
-    resources :project_items, as: 'items'
+    resources :project_items
   end
  
   devise_for :users

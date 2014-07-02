@@ -50,34 +50,29 @@
 
 <div class="row">
   <div class="col-md-7 col-md-offset-1">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Total Cost</th>
+      </tr>
+      </thead>
+      <tbody>
+    <%= link_to 'New Project item', new_project_project_item_path(@project) %>
+    <% @project.project_items.each do |project_item| %>
 
-    <%= link_to 'New Project item', new_project_item_path(@project)  %>
-    <%@project.project_items.each do |project_item| %>
-    <div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">
+          <tr>
+            <td><%= link_to project_item.name, [@project, project_item] %></td>
+            <td><%= project_item.quantity %></td>
+            <td><%= number_to_currency( project_item.total_cost) %></td>
+          </tr>
 
-        </h4>
+      <%= link_to 'Destroy', project_project_items_path(:project_item), method: :delete, data: { confirm: 'Are you sure?' } %>
 
-      </div>
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <%= project_item.name %>
-            <div class="pull-right">
-              <%= number_to_currency( project_item.total_cost) %>
-              for <%= project_item.quantity %>
-            </div>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <p><%= project_item.description %></p>
-        </div>
-      </div>
-      <%= link_to 'Show', project_items_path(project_item.id) %>
-      <%= link_to 'Destroy', project_items_path(:project_item), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
     <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
