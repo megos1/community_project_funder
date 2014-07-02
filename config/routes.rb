@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   get 'pages/about'
   
   get 'pages/home'
- 
-  resources :project_items
 
   resources :donations
 
-  resources :projects    
+  resources :projects do
+    resources :project_items, as: 'items'
+  end
  
   devise_for :users
 

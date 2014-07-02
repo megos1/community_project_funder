@@ -37,8 +37,7 @@
   <%= @project.user %>
    <%= @project.location %>
 
- <%= raise StandardError %>
- 
+
     <%@project.project_items.each do |project_item| %>
      
         <%= project_item.name %>
@@ -54,3 +53,7 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+
+<%= link_to 'New Project item', new_project_item_path(@project) %>
+

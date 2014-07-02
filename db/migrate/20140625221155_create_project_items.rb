@@ -1,6 +1,5 @@
 class CreateProjectItems < ActiveRecord::Migration
   def change
-    drop_table :project_items
     create_table :project_items do |t|
       t.string :name
       t.text :description
