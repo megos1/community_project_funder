@@ -5,11 +5,7 @@ class Project < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def total_cost
-    total = 0
-    project_items.all.each do |project_item|
-      total += project_item.cost
-    end
-    total
+    project_items.map(&:cost).sum
   end
 
   def remaining_cost

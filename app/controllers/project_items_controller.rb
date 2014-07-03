@@ -15,11 +15,13 @@ class ProjectItemsController < ApplicationController
 
   # GET /project_items/new
   def new
+    @project = Project.find(params[:project_id])
     @project_item = ProjectItem.new
   end
 
   # GET /project_items/1/edit
   def edit
+    @project = Project.find(params[:project_id])
   end
 
   # POST /project_items
@@ -43,7 +45,7 @@ class ProjectItemsController < ApplicationController
   def update
     respond_to do |format|
       if @project_item.update(project_item_params)
-        format.html { redirect_to project_path(params[:project_id]), notice: 'Project item was successfully updated.' }
+        format.html { redirect_to project_path(params[:project_id])  , notice: 'Project item was successfully updated.' }
         format.json { render :show, status: :ok, location: @project_item }
       else
         format.html { render :edit }

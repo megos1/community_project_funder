@@ -4,11 +4,7 @@ belongs_to :project
 has_many :donations
 
 def donated
-	total = 0
-	donations.all.each do |donation| 
-  total += donation.quantity
-	end
-	total
+	donations.all.map(&:quantity).sum
 end
 
 def remaining
