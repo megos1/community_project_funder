@@ -152,7 +152,7 @@ body {
 .cover-img {
   background: asset-url('pier.jpg');
   background-size:  cover; 
-  min-height:  65vh;
+  min-height:  90vh;
 }
 
 .center-container{
@@ -162,4 +162,8 @@ body {
   right: 50%;
   position: absolute;
   text-align: left;
+}
+
+.navbar{
+  margin-bottom: 0;
 }

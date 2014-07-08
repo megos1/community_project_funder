@@ -5,23 +5,21 @@ class Project < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def total_cost
-    project_items.map(&:cost).sum
+
+    project_items.map(&:total_cost).sum
+
   end
 
   def remaining_cost
-    total = 0
-    project_items.all.each do |project_item|
-      total += project_item.remaining_cost
-    end
-    total
+
+    project_items.map(&:remaining_cost).sum
+
   end
 
   def donated
-    donatedtotal = 0
-    project_items.all.each do |project_item|
-      donatedtotal += project_item.donated
-    end
-    donatedtotal
+
+    project_items.map(&:donated).sum
+
   end
 
 

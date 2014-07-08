@@ -1,18 +1,25 @@
 <p id="notice"><%= notice %></p>
+
 <div class="row">
   <div class="col-md-7 col-md-offset-1">
-    <h1><%= @project.name.titleize %></h1>
-    <h4><i class="glyphicon glyphicon-map-marker"></i>  <%= @project.location.titleize %></h4>
-  </div>
-  <div class="col-md-3">
-    <%= link_to 'Edit', edit_project_path(@project), class:'btn btn-default btn-md' %>
+    <h1><%= @project.name.titleize %>
+      <%= link_to 'Edit', edit_project_path(@project), class:'btn btn-md btn-warning' %>
+      <%= link_to 'Destroy', @project, class:'btn btn-md btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+    </h1>
+    <span class="text-muted">
+      <i class="glyphicon glyphicon-map-marker"></i>  <%= @project.location.titleize %>
+    </span>
+    <span style="margin-left: 15px">
+      <i class="glyphicon glyphicon-time"></i> 6 Days Left
+    </span>
   </div>
 </div>
+
 <hr/>
 
 <div class="row">
   <div class="col-md-7 col-md-offset-1">
-    <%= image_tag @project.image.url(:original) , class:'img-responsive'%>
+    <%= image_tag @project.image.url(:original), class:'img-responsive'%>
   </div>
   <div class="col-md-3">
     <dl>
@@ -24,7 +31,6 @@
         1000%
       </div>
     </div>
-    <h4><i class="glyphicon glyphicon-time"></i> 6 Days Left</h4>
     <button class="btn btn-block btn-lg btn-primary"> Donate </button>
   </div>
 </div>
@@ -47,7 +53,6 @@
 
 <hr/>
 
-
 <div class="row">
   <div class="col-md-7 col-md-offset-1">
     <table class="table table-striped">
@@ -67,7 +72,6 @@
             <td><%= project_item.quantity %></td>
             <td><%= number_to_currency( project_item.total_cost) %></td>
           </tr>
-        <%= raise StandardError %>
 
         <%= link_to 'Destroy', project_project_items_path(:project_item), method: :delete, data: { confirm: 'Are you sure?' } %>
 
