@@ -1,18 +1,25 @@
 <p id="notice"><%= notice %></p>
+
 <div class="row">
   <div class="col-md-7 col-md-offset-1">
-    <h1><%= @project.name.titleize %></h1>
-    <h4><i class="glyphicon glyphicon-map-marker"></i>  <%= @project.location.titleize %></h4>
-  </div>
-  <div class="col-md-3">
-    <%= link_to 'Edit', edit_project_path(@project), class:'btn btn-default btn-md' %>
+    <h1><%= @project.name.titleize %>
+      <%= link_to 'Edit', edit_project_path(@project), class:'btn btn-md btn-warning' %>
+      <%= link_to 'Destroy', @project, class:'btn btn-md btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+    </h1>
+    <span class="text-muted">
+      <i class="glyphicon glyphicon-map-marker"></i>  <%= @project.location.titleize %>
+    </span>
+    <span style="margin-left: 15px">
+      <i class="glyphicon glyphicon-time"></i> 6 Days Left
+    </span>
   </div>
 </div>
+
 <hr/>
 
 <div class="row">
   <div class="col-md-7 col-md-offset-1">
-    <%= image_tag @project.image.url(:original) , class:'img-responsive'%>
+    <%= image_tag @project.image.url(:original), class:'img-responsive'%>
   </div>
   <div class="col-md-3">
     <dl>
@@ -24,7 +31,10 @@
         100%
       </div>
     </div>
+<<<<<<< HEAD
     <h4><i class="glyphicon glyphicon-time"></i> <%= distance_of_time_in_words(Time.now, @project.duration)%></h4>
+=======
+>>>>>>> ebd4874663189eb651bff6ea74d32a7faae3e83a
     <button class="btn btn-block btn-lg btn-primary"> Donate </button>
   </div>
 </div>
@@ -46,7 +56,6 @@
 </div>
 
 <hr/>
-
 
 <div class="row">
   <div class="col-md-7 col-md-offset-1">

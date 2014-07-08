@@ -3,8 +3,9 @@ class ProjectItem < ActiveRecord::Base
 belongs_to :project
 has_many :donations
 
+
 def donated
-	donations.all.map(&:quantity).sum
+  donations.all.map(&:quantity).sum
 end
 
 def remaining
@@ -16,7 +17,7 @@ def remaining_cost
 end
 
 def total_cost
-	( quantity * cost )
+  quantity * cost
 end
 
 end
