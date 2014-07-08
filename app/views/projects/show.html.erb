@@ -31,10 +31,8 @@
         100%
       </div>
     </div>
-<<<<<<< HEAD
     <h4><i class="glyphicon glyphicon-time"></i> <%= distance_of_time_in_words(Time.now, @project.duration)%></h4>
-=======
->>>>>>> ebd4874663189eb651bff6ea74d32a7faae3e83a
+
     <button class="btn btn-block btn-lg btn-primary"> Donate </button>
   </div>
 </div>
@@ -68,17 +66,16 @@
       </tr>
       </thead>
       <tbody>
-    <%= link_to 'New Project item', new_project_project_item_path(@project) %>
-    <% @project.project_items.each do |project_item| %>
+        <%= link_to 'New Project item', new_project_project_item_path(@project), class: 'btn btn-success btn-md' %>
+        <% @project.project_items.each do |project_item| %>
 
-          <tr>
-            <td><%= link_to project_item.name, [@project, project_item] %></td>
-            <td><%= project_item.quantity %></td>
-            <td><%= number_to_currency( project_item.total_cost) %></td>
-            <td>   <%= link_to 'Remove', project_project_item_path(:project_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+              <tr>
+                <td><%= link_to project_item.name, [@project, project_item] %></td>
+                <td><%= project_item.quantity %></td>
+                <td><%= number_to_currency( project_item.total_cost) %></td>
+              </tr>
 
-    <% end %>
+        <% end %>
       </tbody>
     </table>
   </div>
