@@ -12,11 +12,11 @@ def remaining
 end
 
 def remaining_cost
-  (quantity * cost) - (donated * cost)
+  ( quantity * cost ) - (donated * cost)
 end
 
 def total_cost
-	quantity * cost
+	( quantity * cost )
 end
 
 end
