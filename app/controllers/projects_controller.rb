@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+
   end
 
   # GET /projects/new
@@ -62,6 +63,13 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def authorized?
+    @project.user == current_user
+  end
+
+  helper_method :authorized?
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

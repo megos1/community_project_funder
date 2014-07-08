@@ -12,12 +12,17 @@ def remaining
    quantity - donated
 end
 
-def remaining_cost
-  ( quantity * cost ) - (donated * cost)
-end
-
 def total_cost
   quantity * cost
+end
+
+def remaining_cost
+  if donated < 1
+    0
+  else
+    total_cost - (donated * cost)
+end
+
 end
 
 end

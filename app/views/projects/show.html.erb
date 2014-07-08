@@ -2,9 +2,13 @@
 
 <div class="row">
   <div class="col-md-7 col-md-offset-1">
-    <h1><%= @project.name.titleize %>
+    <h1>
+      <%= @project.name.titleize %>
+      <%= raise StandardError %>
+      <% if authorized? %>
       <%= link_to 'Edit', edit_project_path(@project), class:'btn btn-md btn-warning' %>
       <%= link_to 'Destroy', @project, class:'btn btn-md btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </h1>
     <span class="text-muted">
       <i class="glyphicon glyphicon-map-marker"></i>  <%= @project.location.titleize %>
