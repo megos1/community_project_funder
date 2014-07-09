@@ -6,23 +6,20 @@ class Project < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def total_cost
-
     project_items.map(&:total_cost).sum
-
   end
 
   def remaining_cost
-
     project_items.map(&:remaining_cost).sum
-
   end
 
   def donated
-
     project_items.map(&:donated).sum
-
   end
 
+  def percent_raised
+    (remaining_cost / total_cost) * 100
+  end
 
 end
 

@@ -4,7 +4,6 @@
   <div class="col-md-7 col-md-offset-1">
     <h1>
       <%= @project.name.titleize %>
-      <%= raise StandardError %>
       <% if authorized? %>
       <%= link_to 'Edit', edit_project_path(@project), class:'btn btn-md btn-warning' %>
       <%= link_to 'Destroy', @project, class:'btn btn-md btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -30,11 +29,9 @@
       <dt><h1><%= number_to_currency(@project.remaining_cost) %></h1></dt>
       <dd class="text-muted"><h3>Raised of <%= number_to_currency(@project.total_cost) %></h3></dd>
     </dl>
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-        100%
-      </div>
-    </div>
+
+    <%= render partial: 'percentagebar', locals: {project: @project} %>
+
     <h4><i class="glyphicon glyphicon-time"></i> <%= distance_of_time_in_words(Time.now, @project.duration)%></h4>
 
     <button class="btn btn-block btn-lg btn-primary"> Donate </button>
