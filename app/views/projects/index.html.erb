@@ -15,9 +15,11 @@
             <%= image_tag project.image.url(:medium) %>
         <div class="caption">
         <h3><%= project.name %></h3>
-        <p><%= project.location %></p>
-        <p><%= truncate(project.description, :length => 120) %></p>
-        <p> <%= project.duration %></p>
+        <span>
+          <i class="glyphicon glyphicon-map-marker"></i>
+          <%= project.location %></span>
+          <%= render partial: 'duration', locals: {project: project}%>
+          <p><%= truncate(project.description, :length => 120) %></p>
         <%= render partial: 'percentagebar', locals: {project: project} %>
         </div>
         <% end %>

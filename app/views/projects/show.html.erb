@@ -12,9 +12,7 @@
     <span class="text-muted">
       <i class="glyphicon glyphicon-map-marker"></i>  <%= @project.location.titleize %>
     </span>
-    <span style="margin-left: 15px">
-      <i class="glyphicon glyphicon-time"></i> 6 Days Left
-    </span>
+    <%= render partial: 'duration', locals: {project: @project}%>
   </div>
 </div>
 
@@ -32,7 +30,9 @@
 
     <%= render partial: 'percentagebar', locals: {project: @project} %>
 
-    <h4><i class="glyphicon glyphicon-time"></i> <%= distance_of_time_in_words(Time.now, @project.duration)%></h4>
+    <h4>
+      <%= render partial: 'duration', locals: {project: @project}%>
+    </h4>
 
     <button class="btn btn-block btn-lg btn-primary"> Donate </button>
   </div>
