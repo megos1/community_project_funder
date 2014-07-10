@@ -18,8 +18,12 @@ class Project < ActiveRecord::Base
   end
 
   def percent_raised
+    if remaining_cost = 0
+      0
+    else
     (remaining_cost / total_cost) * 100
   end
+end
 
 end
 
