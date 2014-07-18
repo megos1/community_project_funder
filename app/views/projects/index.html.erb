@@ -1,5 +1,7 @@
 <h1>Projects</h1>
 
+<div class= "container"
+
 <!-- 
 <%= link_to 'New Project', new_project_path, class:'btn btn-success btn-md' %> -->
 
@@ -7,26 +9,27 @@
 
     <% @projects.each do |project| %>
 
-        <div class="col-sm-6 col-md-4 col-lg-4">
-
+        <div class="col-sm-3 col-md-3">
+       
           <%= link_to(project ) do %>
 
-        <div class="thumbnail">
+            <div class="thumbnail">
+          <img class="img-responsive" 
             <%= image_tag project.image.url(:medium) %>
-        <div class="caption">
-        <h3><%= project.name %></h3>
-        <span>
-          <i class="glyphicon glyphicon-map-marker"></i>
-          <%= project.location %></span>
-          <%= render partial: 'duration', locals: {project: project}%>
-          <p><%= truncate(project.description, :length => 120) %></p>
-        <%= render partial: 'percentagebar', locals: {project: project} %>
-        </div>
-        <% end %>
-        </div>
-        </div>
-        </div>
- <% end %>
+              
+            <div class="caption">
+            <h3><%= project.name %></h3>
+            <span>
+              <i class="glyphicon glyphicon-map-marker"></i>
+              <%= project.location %></span>
+              <%= render partial: 'duration', locals: {project: project}%>
+              <p><%= truncate(project.description, :length => 120) %></p>
+            <%= render partial: 'percentagebar', locals: {project: project} %>
+            </div>
+            <% end %>
+            </div>
+            </div>
+      <% end %>
  </div>
 
 
