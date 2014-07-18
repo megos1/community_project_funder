@@ -73,7 +73,7 @@
               <tr>
                 <td><%= link_to project_item.name, [@project, project_item] %></td>
                 <td><%= project_item.quantity %></td>
-                  <%= raise %>
+                  <%= project_item.quantity %>
 
                 <td><%= number_to_currency( project_item.total_cost) %></td>
               </tr>
